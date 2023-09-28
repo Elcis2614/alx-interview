@@ -1,7 +1,17 @@
 #!/usr/bin/python3
-def pascal_triangle(n):
-    from math import comb
+"""
+This script contains only one function which ,
+construct a pascal triangle
+"""
 
+
+def pascal_triangle(n):
+    """ return a 2D list where each each element
+        is a row that contains a list of elements
+        which represent the column
+    """
+
+    from math import comb
     triangle = []
     for i in range(n):
         row = []
