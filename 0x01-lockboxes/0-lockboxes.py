@@ -11,8 +11,6 @@ def canUnlockAll(boxes):
         returns true i fall boxes can be opened, else return False
         The first box boxes[0] is unlocked
     """
-    if (boxes is None or boxes == []):
-        return
     gates = [0 for box in boxes]
     gates[0] = 1
 
@@ -20,14 +18,13 @@ def canUnlockAll(boxes):
         """ Given the keys(address) the function recursively
             open boxes and updates the gates variables """
         if (addresses == []):
-            return
+            return True
         for address in addresses:
             if address >= len(boxes):
                 continue
             elif gates[address] != 1:
                 gates[address] = 1
                 openLock(boxes[address])
-                continue
             else:
                 continue
     openLock(boxes[0])
