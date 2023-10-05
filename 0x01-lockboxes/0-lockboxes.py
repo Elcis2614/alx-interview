@@ -11,6 +11,8 @@ def canUnlockAll(boxes):
         returns true i fall boxes can be opened, else return False
         The first box boxes[0] is unlocked
     """
+    if (boxes is None || boxes == []):
+        return
     gates = [0 for box in boxes]
     gates[0] = 1
 
