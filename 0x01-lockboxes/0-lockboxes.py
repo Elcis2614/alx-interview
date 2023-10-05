@@ -20,7 +20,8 @@ def canUnlockAll(boxes):
         if (addresses == []):
             return
         for address in addresses:
-            if address >= len(boxes) continue
+            if address >= len(boxes):
+                continue
             elif gates[address] != 1:
                 gates[address] = 1
                 openLock(boxes[address])
