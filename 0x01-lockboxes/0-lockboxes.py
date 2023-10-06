@@ -8,7 +8,7 @@ def canUnlockAll(boxes):
     """
         Each box is numbered sequentially from 0 to n - 1 and
         each box may contain keys to the other boxes.
-        returns true i fall boxes can be opened, else return False
+        returns true if all boxes can be opened, else return False
         The first box boxes[0] is unlocked
     """
     gates = [0 for box in boxes]
@@ -18,8 +18,8 @@ def canUnlockAll(boxes):
         """ Given the keys(address) the function recursively
             open boxes and updates the gates variables
         """
-        if (addresses == []):
-            return True
+        if (addresses == [] or addresses is None):
+            return
         for address in addresses:
             try:
                 if gates[address] != 1:
