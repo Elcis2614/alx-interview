@@ -16,16 +16,16 @@ def canUnlockAll(boxes):
 
     def openLock(addresses):
         """ Given the keys(address) the function recursively
-            open boxes and updates the gates variables """
+            open boxes and updates the gates variables
+        """
         if (addresses == []):
             return True
         for address in addresses:
-            if address >= len(boxes):
-                continue
-            elif gates[address] != 1:
-                gates[address] = 1
-                openLock(boxes[address])
-            else:
+            try:
+                if gates[address] != 1:
+                    gates[address] = 1
+                    openLock(boxes[address])
+            except IndexError:
                 continue
     openLock(boxes[0])
     return (0 not in gates)
