@@ -18,7 +18,7 @@ def canUnlockAll(boxes):
         """ Given the keys(address) the function recursively
             open boxes and updates the gates variables
         """
-        if (addresses == [] or addresses is None):
+        if (addresses == []):
             return
         for address in addresses:
             try:
