@@ -20,10 +20,8 @@ def canUnlockAll(boxes):
         """
         return len(boxes) == len(opened)
 
-    i = 0
-    while i < len(opened) and not same():
-        for box in boxes[i]:
-            if box not in opened:
-                opened.append(box)
-        i += 1
+    for i in opened:
+        for key in boxes[i]:
+            if key not in opened:
+                opened.append(key)
     return same()
