@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
     method that determines if all the boxes can be opened
+    implemented with a simple for loop
 """
 
 
@@ -11,21 +12,18 @@ def canUnlockAll(boxes):
         returns true if all boxes can be opened, else return False
         The first box boxes[0] is unlocked
     """
-    gates = [0 for box in boxes]
-    gates[0] = 1
+    opened = [0]
 
-    def openLock(addresses):
-        """ Given the keys(address) the function recursively
-            open boxes and updates the gates variables
+    def same():
         """
-        if (addresses == []):
-            return
-        for address in addresses:
-            try:
-                if gates[address] != 1:
-                    gates[address] = 1
-                    openLock(boxes[address])
-            except IndexError:
-                continue
-    openLock(boxes[0])
-    return (0 not in gates)
+           Check if the two boxes are of the same length
+        """
+        return len(boxes) == len(opened)
+
+    i = 0
+    while i < len(opened) and not same():
+        for box in boxes[i]:
+            if box not in opened:
+                opened.append(box)
+        i += 1
+    return same()
