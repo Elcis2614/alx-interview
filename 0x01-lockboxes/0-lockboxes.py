@@ -24,6 +24,4 @@ def canUnlockAll(boxes):
         for key in boxes[i]:
             if key not in opened and key < len(boxes):
                 opened.append(key)
-
-        print(opened)
     return same()
