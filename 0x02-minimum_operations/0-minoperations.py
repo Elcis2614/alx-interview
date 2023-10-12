@@ -22,7 +22,7 @@ def minOperations(n):
         return least_power * 2
 
     elif (n % 2 != 0):
-        return n
+        return 0
     else:
         least_square = math.gcd(2 ** least_power, n)
         return int(2 * math.log(least_square, 2) + (n / least_square))
