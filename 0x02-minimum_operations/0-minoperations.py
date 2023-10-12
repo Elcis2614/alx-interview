@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 """
-   Function minOperations return the number of operations
+   Function minOperations return the number of min. operations
+   needed to result in exactly n H characters
+   with only two operations possible CopyAll and Paste
    n the number to attain
 """
 
-from math import log
+import math
 
 
 def minOperations(n):
@@ -14,12 +16,10 @@ def minOperations(n):
     """
     if (n <= 1):
         return 0
-    least_power = int(log(n, 2))
+    least_power = int(math.log(n, 2))
 
     if (2 ** least_power == n):
         return least_power * 2
     else:
-        least_square = 2 ** least_power
-        if (n == (least_square + least_square/2)):
-            return (2 * least_power) + 1
-        return (2 * least_power) + 2
+        least_square = math.gcd(2 ** least_power, n)
+        return int(2 * math.log(least_square, 2) + (n / least_square))
