@@ -22,7 +22,6 @@ def printData(data, file_size):
     for key, value in data.items():
         if (value != 0):
             print("{:d}: {:d}".format(key, value))
-            data[key] = 0
 
 
 def read_stdin():
