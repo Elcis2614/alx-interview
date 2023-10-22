@@ -51,6 +51,8 @@ def read_stdin():
             if (cycle == 10):
                 printData(data, file_size)
                 cycle = 0
+        if 0 < cycle < 10:
+            printData(data, file_size)
     except KeyboardInterrupt:
         printData(data, file_size)
 
