@@ -46,9 +46,8 @@ def read_stdin():
                 data[int(collect[0].strip())] += 1
                 file_size += int(collect[1])
                 cycle += 1
-
-            if (cycle % 10 == 0):
-                printData(data, file_size)
+                if (cycle % 10 == 0):
+                    printData(data, file_size)
 
         if cycle % 10 != 0 or cycle == 0:
             printData(data, file_size)
