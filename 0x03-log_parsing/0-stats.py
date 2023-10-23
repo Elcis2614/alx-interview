@@ -41,7 +41,7 @@ def read_stdin():
     cycle = 0
     try:
         for line in fileinput.input():
-            if not re.search(form, line):
+            if re.search(form, line) is None:
                 continue
             elif (re.search(form, line)):
                 collect = line.split('"')[-1].strip().split(" ")
