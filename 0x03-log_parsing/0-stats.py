@@ -47,10 +47,10 @@ def read_stdin():
                 file_size += int(collect[1])
                 cycle += 1
 
-            if (cycle == 10):
+            if (cycle % 10 == 0):
                 printData(data, file_size)
-                cycle = 0
-        if 0 < cycle < 10 and re.search(form, line):
+
+        if cycle % 10 != 0 or cycle == 0:
             printData(data, file_size)
     except KeyboardInterrupt:
         printData(data, file_size)
