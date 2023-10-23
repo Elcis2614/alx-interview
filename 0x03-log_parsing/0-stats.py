@@ -41,13 +41,13 @@ def read_stdin():
     cycle = 0
     try:
         for line in fileinput.input():
+            cycle += 1
             if (re.search(form, line)):
                 collect = line.split('"')[-1].strip().split(" ")
                 data[int(collect[0].strip())] += 1
                 file_size += int(collect[1])
-                cycle += 1
-                if (cycle % 10 == 0):
-                    printData(data, file_size)
+            if (cycle % 10 == 0):
+                printData(data, file_size)
 
         if cycle % 10 != 0 or cycle == 0:
             printData(data, file_size)
