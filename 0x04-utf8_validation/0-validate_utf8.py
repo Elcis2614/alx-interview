@@ -31,8 +31,10 @@ def validUTF8(data):
         Determines if a given data set represents a valid UTF-8 encoding
         Return: True if data is a valid UTF-8 encoding, else return False
     """
-    if data is None or data == []:
+    if data is None:
         return False
+    elif data == []:
+        return True
     bytes_nb = leadingByte(data[0])
     if bytes_nb == 0:
         return False
@@ -43,11 +45,11 @@ def validUTF8(data):
             if type(data[i]) is not int:
                 return False
             str_i = "{0:08b}".format(data[i])
-            if data[i] > int('1011111', 2):
+            if data[i] > int('10111111', 2):
                 return False
             elif not re.search('10[0-9]{6}', str_i):
                 return False
-        if len(data) == bytes_nd:
+        if len(data) == bytes_nb:
             return True
         return True and ValidUTF8(data[bytes_nd:])
     except IndexError:
