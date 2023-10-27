@@ -49,6 +49,6 @@ def validUTF8(data):
                 return False
             elif not re.search('10[0-9]{6}', str_i):
                 return False
-        return True
+        return True and validUTF8(data[len(data):])
     except IndexError:
         return False
