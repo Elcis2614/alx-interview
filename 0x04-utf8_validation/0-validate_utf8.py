@@ -12,8 +12,6 @@ def leadingByte(n: int) -> int:
         Return 1 - 4 if correct
         return 0 otherwise
     """
-    if (n > int('11110111', 2)):
-        return 0
     str_n = '{0:08b}'.format(n)
     if re.search('^11110[0-9]{3}$', str_n):
         return 4
@@ -51,8 +49,6 @@ def validUTF8(data):
                 return False
             elif not re.search('10[0-9]{6}', str_i):
                 return False
-        if len(data) == bytes_nb:
-            return True
-        return True and validUTF8(data[bytes_nb:])
+        return True
     except IndexError:
         return False
