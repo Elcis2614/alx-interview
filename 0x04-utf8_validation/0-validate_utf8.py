@@ -36,10 +36,12 @@ def validUTF8(data):
     elif data == []:
         return True
     bytes_nb = leadingByte(data[0])
-    if bytes_nb == 1 or len(data) == 1:
+    if bytes_nb == 1:
         return True
+    elif bytes_nb == 0 and len(data) == 1:
+        return False
     elif bytes_nb == 0:
-        return True and validUTF8(data[1:0])
+        return True and validUTF8(data[1:])
     try:
         for i in range(1, bytes_nb):
             if type(data[i]) is not int:
