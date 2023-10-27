@@ -51,6 +51,6 @@ def validUTF8(data):
                 return False
         if len(data) == bytes_nb:
             return True
-        return True and ValidUTF8(data[bytes_nd:])
+        return True and validUTF8(data[bytes_nb:])
     except IndexError:
         return False
