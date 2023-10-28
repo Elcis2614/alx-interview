@@ -34,13 +34,14 @@ def validUTF8(data):
     elif data == []:
         return True
     bytes_nb = leadingByte(data[0])
-    if bytes_nb == 1:
+    if bytes_nb == 1 and len(data) == 1:
         return True
     elif bytes_nb == 0 and len(data) == 1:
         return False
     elif bytes_nb == 0:
         return True and validUTF8(data[1:])
     try:
+        i = 1
         for i in range(1, bytes_nb):
             if type(data[i]) is not int:
                 return False
@@ -49,6 +50,6 @@ def validUTF8(data):
                 return False
             elif not re.search('10[0-9]{6}', str_i):
                 return False
-        return True and validUTF8(data[len(data):])
+        return True and validUTF8(data[i + 1:])
     except IndexError:
         return False
