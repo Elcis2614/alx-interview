@@ -10,6 +10,8 @@ def makeChange(coins, total):
     """
     if total <= 0:
         return 0
+    elif coins is None or len(coins) == 0:
+        return -1
     coins.sort()
     if total == coins[0]:
         return 1
