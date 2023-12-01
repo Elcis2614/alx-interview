@@ -41,6 +41,8 @@ def island_perimeter(grid):
     """
     if grid is None:
         return 0
+    elif len(grid) <= 0:
+        return 0
     line_index = 0
     col_index = 0
     for i in range(len(grid)):
