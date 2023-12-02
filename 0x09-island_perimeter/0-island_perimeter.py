@@ -27,6 +27,8 @@ def traverse(i, j, grid):
     down = traverse(i + 1, j, grid)
     t_count = [back, up, foward, down].count(0)
     globals()["COUNT"] += t_count
+    if t_count == 0:
+        return -1
     return t_count
 
 
