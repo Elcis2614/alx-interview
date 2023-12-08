@@ -28,10 +28,11 @@ def isWinner(x: int, nums: [int]) -> [str, type(None)]:
     """
     if nums is None:
         return None
-    if type(x) == int and x > 0 and x <= len(nums):
+    if type(x) == int and x > 0 and x <= len(nums) and nums != []:
         Maria = 0
         Ben = 0
-        for n in nums:
+        for i in range(x):
+            n = nums[i]
             if (type(n) is not int) or (n <= 0):
                 return None
             else:
