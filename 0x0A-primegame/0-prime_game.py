@@ -26,7 +26,7 @@ def isWinner(x: int, nums: [int]) -> [str, type(None)]:
     """
         Return the winner
     """
-    if type(x) == int and x > 0 and x == len(nums):
+    if type(x) == int and x > 0 and x <= len(nums):
         Maria = 0
         Ben = 0
         for n in nums:
@@ -34,10 +34,10 @@ def isWinner(x: int, nums: [int]) -> [str, type(None)]:
                 return None
             else:
                 count = primeCount(n)
-                if count % 2 != 0:
-                    Maria += 1
-                else:
+                if count % 2 == 0 or n == 1:
                     Ben += 1
+                else:
+                    Maria += 1
         if Maria > Ben:
             return "Maria"
         elif Ben > Maria:
