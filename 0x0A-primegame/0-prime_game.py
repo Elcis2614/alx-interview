@@ -33,8 +33,8 @@ def isWinner(x: int, nums: [int]) -> [str, type(None)]:
         Ben = 0
         for i in range(x):
             n = nums[i]
-            if (type(n) is not int) or (n <= 0):
-                return None
+            if (type(n) is not int) or n == 0:
+                continue
             else:
                 count = primeCount(n)
                 if count % 2 == 0 or n == 1:
