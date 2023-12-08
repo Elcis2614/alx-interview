@@ -26,6 +26,8 @@ def isWinner(x: int, nums: [int]) -> [str, type(None)]:
     """
         Return the winner
     """
+    if nums is None:
+        return None
     if type(x) == int and x > 0 and x <= len(nums):
         Maria = 0
         Ben = 0
