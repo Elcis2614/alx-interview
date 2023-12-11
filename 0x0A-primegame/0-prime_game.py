@@ -144,10 +144,10 @@ def isWinner(x: int, nums: [int]) -> [str, type(None)]:
                 continue
             else:
                 count = primeCount(n)
-                if count % 2 != 0 and count != 1:
-                    Maria += 1
-                else:
+                if count % 2 == 0 or n == 1:
                     Ben += 1
+                else:
+                    Maria += 1
         if Maria > Ben:
             return "Maria"
         elif Ben > Maria:
